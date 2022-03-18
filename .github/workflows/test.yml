@@ -17,6 +17,16 @@ jobs:
           import platform
           print(platform.processor())
         shell: python
+      - name: List files
+        run: |
+          pwd
+          ls -a
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List files
+        run: |
+          pwd
+          ls -a 
   run-windows-commands:
     runs-on: windows-latest
     needs: ["run-shell-command"]

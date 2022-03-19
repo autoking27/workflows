@@ -1,6 +1,6 @@
 name: shell commands
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   run-shell-command:
@@ -21,7 +21,7 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v1
       - name: List files
         run: |

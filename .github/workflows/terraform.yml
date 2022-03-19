@@ -14,7 +14,7 @@ jobs:
       - name: Configure AWS credentials 
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::411854276167:user/terraform_user
+          role-to-assume: arn:aws:iam::411854276167:role/Ansible-terraform
           aws-region: us-west-1
       - name: Terraform fmt
         id: fmt

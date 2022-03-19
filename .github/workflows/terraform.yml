@@ -6,8 +6,6 @@ jobs:
     defaults:
       runs-on: ubuntu-latest
       steps:
-      - name: Change directory
-        run: cd $HOME
       - uses: actions/checkout@v1
       - uses: hashicorp/setup-terraform@v1
 

@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: hashicorp/setup-terraform@v1
       - name: Decrypt file
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$PHRASE" --output $HOME/credentials creds.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PHRASE" --output $HOME/.aws/credentials creds.gpg
         env:
           PHRASE: ${{ secrets.PHRASE }}
       - name: Terraform fmt

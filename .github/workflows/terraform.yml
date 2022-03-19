@@ -5,8 +5,11 @@ on: [push]
 jobs:
     defaults:
       runs-on: ubuntu-latest
+      permissions:
+        id-token: write
+        contents: read
       steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
       - name: Configure AWS credentials 
         uses: aws-actions/configure-aws-credentials@v1

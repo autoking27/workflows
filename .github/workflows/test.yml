@@ -1,8 +1,21 @@
 name: shell commands
 
-on: [push, pull_request]
+on: [push]
+
+env:
+  WF_ENV: ${{ secrets.WF_ENV }}
 
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Decrypt file
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.txt my_secret.txt.gpg
+        env:
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+      - name: Print our file
+        run: cat $HOME/secret.txt
   run-shell-command:
     runs-on: ubuntu-latest
     steps:

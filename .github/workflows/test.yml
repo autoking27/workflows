@@ -1,6 +1,9 @@
 name: shell commands
 
-on: [push, pull_request]
+on: [push]
+
+env:
+  WF_ENV: ${{ secrets.WF_ENV }}
 
 jobs:
   run-shell-command:

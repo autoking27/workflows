@@ -14,7 +14,7 @@ jobs:
           PHRASE: ${{ secrets.PHRASE }}
       - name: Credentials file
         run: |
-          mkdir .aws
+          sudo mkdir $HOME/.aws/
           cp $HOME/credentials $HOME/.aws/credentials
       - name: Terraform fmt
         id: fmt

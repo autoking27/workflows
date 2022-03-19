@@ -8,14 +8,11 @@ jobs:
       steps:
       - uses: actions/checkout@v1
       - uses: hashicorp/setup-terraform@v1
-      - name: Decrypt file
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$PHRASE" --output $HOME/credentials creds.gpg
-        env:
-          PHRASE: ${{ secrets.PHRASE }}
-      - name: Credentials file
-        run: |
-          sudo mkdir $HOME/.aws/
-          cp $HOME/credentials $HOME/.aws/credentials
+      - name: Configure AWS credentials 
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::411854276167:user/terraform_user
+          aws-region: us-west-1
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check

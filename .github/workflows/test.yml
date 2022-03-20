@@ -7,7 +7,7 @@ env:
 
 jobs:
   decrypt:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v1
       - name: Decrypt file
@@ -17,7 +17,7 @@ jobs:
       - name: Print our file
         run: cat $HOME/secret.txt
   run-shell-command:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: echo a string
         run: echo "Hello world"

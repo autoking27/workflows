@@ -4,7 +4,7 @@
   }
   {
     "scripts": {
-      "chromatic": "chromatic --project-token=8ccfa4ac6582"
+      "chromatic": "chromatic --project-token 8ccfa4ac6582"
     }
   }
 }

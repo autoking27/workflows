@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "chromatic": npx chromatic --project-token 8ccfa4ac6582
+  }
+}

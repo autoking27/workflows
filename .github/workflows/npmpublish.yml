@@ -11,10 +11,10 @@ jobs:
     name: Bump Package Version
     runs-on: ubuntu-latest
     steps:
-      - name: Example variable usage
-        run: git tag ${{ github.event.inputs.version }}
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Example variable usage
+        run: git tag ${{ github.event.inputs.version }}
       - name: Setup Node
         uses: actions/setup-node@v2
         with:

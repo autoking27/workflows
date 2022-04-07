@@ -1,0 +1,29 @@
+name: Storybook publishing on Chromatic
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:    
+      - main
+
+jobs:
+  chromatic-deployment:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+        # This stage will check out the code from parallel-mono repo into the runner using Version 2 of the action.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 #Required to retrieve git history. This will fetch all history for all tags and branches when fetch-depth=0
+      - name: Install dependencies
+        run: yarn
+        #Adds Chromatic as a step in the workflow. This step will publish the storybook to chromatic using the chromatic project token.
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Options required to the GitHub Chromatic Action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 👇 Chromatic projectToken, set as secret in the repo.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

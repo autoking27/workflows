@@ -2,9 +2,4 @@
   "devDependencies": {
     "chromatic": "^6.5.3"
   }
-  {
-    "scripts": {
-      "chromatic": "chromatic --project-token 8ccfa4ac6582"
-    }
-  }
 }

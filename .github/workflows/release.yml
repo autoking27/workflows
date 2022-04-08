@@ -7,7 +7,7 @@ jobs:
   release-deployment:
     runs-on: ubuntu-latest
     steps:
-        # This stage will check out the code from parallel-mono repo into the runner using Version 2 of the action.
+        ## This stage will check out the code from parallel-mono repo into the runner using Version 2 of the action.
       - name: Checkout repository
         uses: actions/checkout@v2
         with:

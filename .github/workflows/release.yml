@@ -2,10 +2,10 @@ name: release workflow
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: Publish Package? 
-        default: publish
-        required: false
+      #version:
+       # description: Publish Package? 
+       # default: publish
+        #required: false
   #push:
    # branches:
     #  - main

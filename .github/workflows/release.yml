@@ -19,7 +19,8 @@ jobs:
         with:
           fetch-depth: 0 ##Required to retrieve git history. This will fetch all history for all tags and branches when fetch-depth=0 
       - name: Create a release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        #if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         run: npx semantic-release
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}

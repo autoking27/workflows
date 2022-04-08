@@ -1,7 +1,7 @@
 name: release workflow
 on:
   workflow_dispatch:
-    inputs:
+    #inputs:
       #version:
        # description: Publish Package? 
        # default: publish

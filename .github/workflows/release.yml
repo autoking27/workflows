@@ -1,8 +1,14 @@
 name: release workflow
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Publish Package? 
+        default: publish
+        required: true
+  #push:
+   # branches:
+    #  - main
 jobs:
   release-deployment:
     runs-on: ubuntu-latest

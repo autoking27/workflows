@@ -1,6 +1,6 @@
 module.exports = {
     branches: "main"
-    repositoryUrl: "https://github.com/Kenmakhanu/workflows",
+    repositoryUrl: "https://github.com/Kenmakhanu/workflows.git",
     plugins: [
         '@semantic-release/commit-analyzer',
         '@semantic-release/release-notes-generator',

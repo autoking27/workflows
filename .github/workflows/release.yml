@@ -1,0 +1,19 @@
+name: release workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release-deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # This stage will check out the code from parallel-mono repo into the runner using Version 2 of the action.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 #Required to retrieve git history. This will fetch all history for all tags and branches when fetch-depth=0 
+      - name: Create a release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}

@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "chromatic": "^6.5.3"
+    "chromatic": "^6.5.3",
+    "semantic-release": "^19.0.2"
   }
 }

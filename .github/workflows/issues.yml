@@ -1,7 +1,8 @@
 name: Create issue on commit
 
 on: [ push ]
-
+branches:
+    - main
 jobs:
   create_commit:
     runs-on: ubuntu-latest 

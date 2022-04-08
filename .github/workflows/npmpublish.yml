@@ -1,5 +1,9 @@
-name: Manual Inputs
+# This workflow will version your NPM package
+# You will need to manually input the package version number before you trigger the workflow.
+
+name: Node.js package 
 on: 
+  
   workflow_dispatch:
     inputs:
       version:
@@ -8,12 +12,12 @@ on:
         required: true
 jobs:
   bump-version:
-    name: Bump Package Version
+    name: Package Version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Example variable usage
+      - name: Tag the package
         run: git tag ${{ github.event.inputs.version }}
       - name: Setup Node
         uses: actions/setup-node@v2

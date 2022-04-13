@@ -1,24 +1,19 @@
-# This workflow will version your NPM package
-# You will need to manually input the package version number before you trigger the workflow.
+# This workflow will create a release based on the major, minor and patch version of NPM package
+# The workflow will be manually triggered in git hub actions.
+# Install semantic-release on your local environment
 
 name: Node.js package 
 on: 
   
   workflow_dispatch:
-    inputs:
-      version:
-        description: Bump Version
-        default: v1.0.0
-        required: true
+      
 jobs:
-  bump-version:
+  Release-publish:
     name: Package Version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Tag the package
-        run: git tag ${{ github.event.inputs.version }}
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -26,6 +21,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: npm install && npm run build
+      - name: Create a release
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}  
       - name: Publish package on NPM 📦
         run: npm publish
         env:

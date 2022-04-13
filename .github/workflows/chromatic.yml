@@ -3,11 +3,22 @@ name: Storybook publishing on Chromatic
 on:
   pull_request:
     types:
-      - closed
+      - opened
     branches:    
       - main
 
 jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: yarn
+      - name: Test components
+        run: yarn test-components
   chromatic-deployment:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest

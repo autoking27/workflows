@@ -8,3 +8,8 @@ resource "aws_instance" "ubuntu" {
     "Name" = "Ansible-Ubuntu"
   }
 }
+
+resource "aws_instance" "myec2test" {
+   ami = aws_instance.ubuntu
+   instance_type = 
+}

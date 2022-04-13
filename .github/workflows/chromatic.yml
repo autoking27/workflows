@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0 #Required to retrieve git history. This will fetch all history for all tags and branches when fetch-depth=0
       - name: Install dependencies
         run: yarn
-        #Adds Chromatic as a step in the workflow. This step will publish the storybook to chromatic using the chromatic project token.
+        ##Adds Chromatic as a step in the workflow. This step will publish the storybook to chromatic using the chromatic project token.
       #- name: Publish to Chromatic
       #  uses: chromaui/action@v1
         # Options required to the GitHub Chromatic Action

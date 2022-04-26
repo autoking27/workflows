@@ -1,0 +1,19 @@
+# cat .github/workflows/tests.yml
+name: tests
+on: [workflow_call]  # allow this workflow to be called from other workflows
+jobs:
+  ...
+
+# cat .github/workflows/deploy.yml
+name: deploy
+on:
+  push:
+    tags:  # trigger the deploy job on tag creation
+    - *
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml  # use the callable tests job to run tests
+  deploy:
+    name: deploy
+    needs: [tests]  # require tests to pass before deploy runs
+    ...

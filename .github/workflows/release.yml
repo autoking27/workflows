@@ -18,6 +18,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 ###Required to retrieve git history. This will fetch all history for all tags and branches when fetch-depth=0 
+      - name: code coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+           lcov-file: ./coverage/lcov.info
       - name: Create a release
         ##if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'

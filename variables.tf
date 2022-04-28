@@ -10,7 +10,7 @@ variable "my_instance_type"{
 
 variable "my_key"{
   type = string
-  default = "Mygitkey"
+  default = "terraform_key"
 }
 
 variable "my_ami"{

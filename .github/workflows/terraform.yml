@@ -9,45 +9,48 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v1
+      - name: Set up terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.1.9
         #with: 
          # submodules: true
           #token: ${{ secrets.GITHUB_REPO_TOKEN }}
-      - name: Run Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '9.8.0'
+      #- name: Run Node
+       # uses: actions/setup-node@v1
+       # with:
+        #  node-version: '9.8.0'
       - name: 'Terraform Init'
         #uses: hashicorp/terraform-github-actions@master
-        uses: hashicorp/setup-terraform@v2
+        run: terraform init
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        with:
-          terraform_version: 1.1.9
+        
           #tf_actions_subcommand: 'init'
       - name: 'Terraform Validate'
-        uses: hashicorp/setup-terraform@v2
+        run: terraform validate
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        with:
-          terraform_version: 1.1.9
+        #with:
+         # terraform_version: 1.1.9
           #tf_actions_subcommand: 'validate'
       - name: 'Terraform Plan'
-        uses: hashicorp/setup-terraform@v2
+        run: terraform plan
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        with:
-          terraform_version: 1.1.9
+        #with:
+         # terraform_version: 1.1.9
           #tf_actions_subcommand: 'plan'
       - name: 'Terraform Apply'
-        uses: hashicorp/setup-terraform@v2
+        run: terraform apply -auto-approve
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        with:
-          terraform_version: 1.1.9
+        #with:
+         # terraform_version: 1.1.9
           #tf_actions_subcommand: 'apply'
      # - name: 'Upload new assets to s3'
       #  uses: chrislennon/action-aws-cli@v1.1

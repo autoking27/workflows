@@ -1,8 +1,7 @@
 name: 'Terraform  Deploy'
 on:
   push: 
-    tags:
-      - v*
+    
 jobs:
   terraform:
     name: 'Terraform'
@@ -10,9 +9,9 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v1
-        with: 
-          submodules: true
-          token: ${{ secrets.GITHUB_REPO_TOKEN }}
+        #with: 
+         # submodules: true
+          #token: ${{ secrets.GITHUB_REPO_TOKEN }}
       - name: Run Node
         uses: actions/setup-node@v1
         with:

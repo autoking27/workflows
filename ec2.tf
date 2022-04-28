@@ -9,7 +9,7 @@ resource "aws_instance" "ubuntu" {
   }
 }
 
-resource "aws_instance" "ubuntu" {
+resource "aws_instance" "ubuntu1" {
   ami          = var.my_ami  #data.aws_ami.ubuntu.id
   instance_type = var.my_instance_type
   #user_data = file("${path.module}/ansible-install-ubuntu.sh")

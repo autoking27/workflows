@@ -23,32 +23,32 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
-          tf_actions_version: 1.1.9
-          tf_actions_subcommand: 'init'
+          terraform_version: 1.1.9
+          #tf_actions_subcommand: 'init'
       - name: 'Terraform Validate'
         uses: hashicorp/setup-terraform@v2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
-          tf_actions_version: 1.1.9
-          tf_actions_subcommand: 'validate'
+          terraform_version: 1.1.9
+          #tf_actions_subcommand: 'validate'
       - name: 'Terraform Plan'
         uses: hashicorp/setup-terraform@v2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
-          tf_actions_version: 1.1.9
-          tf_actions_subcommand: 'plan'
+          terraform_version: 1.1.9
+          #tf_actions_subcommand: 'plan'
       - name: 'Terraform Apply'
         uses: hashicorp/setup-terraform@v2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
-          tf_actions_version: 1.1.9
-          tf_actions_subcommand: 'apply'
+          terraform_version: 1.1.9
+          #tf_actions_subcommand: 'apply'
      # - name: 'Upload new assets to s3'
       #  uses: chrislennon/action-aws-cli@v1.1
         # All commands after this point have access to the AWS CLI

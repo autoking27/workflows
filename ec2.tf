@@ -5,6 +5,6 @@ resource "aws_instance" "ubuntu" {
   key_name = var.my_key
 
   tags = {
-    "Name" = "Ubuntu-test"
+    "Name" = "Ubuntu-test1"
   }
 }

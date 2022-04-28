@@ -1,16 +1,17 @@
 name: 'Terraform  Deploy'
 on:
   push: 
-defaults:
-      run:
-        shell: bash
-        working-directory: terraformer
     
+
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
     
+    defaults:
+      run:
+        shell: bash
+        working-directory: terraformer1  
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v1

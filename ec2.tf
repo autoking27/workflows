@@ -5,6 +5,6 @@ resource "aws_instance" "ubuntu" {
   key_name = var.my_key
 
   tags = {
-    "Name" = "Ansible-Ubuntu"
+    "Name" = "Ubuntu-test"
   }
 }

@@ -5,7 +5,7 @@ variable "aws_region"{
 
 variable "my_instance_type"{
   type = string
-  default = {}
+  #default = {}
 }
 
 variable "my_key"{
